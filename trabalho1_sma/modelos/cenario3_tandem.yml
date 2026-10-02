@@ -1,0 +1,31 @@
+#==============================================================================
+# Cenario 3: Tandem G/G/1/4 -> G/G/2/6 - exemplo alternativo
+# Q1 recebe clientes do exterior e todos seguem para Q2.
+#==============================================================================
+!PARAMETERS
+
+rndnumbersPerSeed: 100000
+seeds:
+- 23
+
+arrivals:
+   Q1: 1.0
+
+queues:
+   Q1:
+      servers: 1
+      capacity: 4
+      minArrival: 1.5
+      maxArrival: 3.5
+      minService: 2.0
+      maxService: 3.5
+   Q2:
+      servers: 2
+      capacity: 6
+      minService: 1.5
+      maxService: 2.5
+
+network:
+-  source: Q1
+   target: Q2
+   probability: 1.0

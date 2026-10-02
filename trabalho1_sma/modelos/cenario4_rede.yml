@@ -1,0 +1,73 @@
+#==============================================================================
+# Cenario 4: Rede com 4 filas e roteamento probabilistico - exemplo alternativo
+#
+# A ──0.40──> B
+# └──0.35──> C
+# └──0.25──> exterior
+#
+# B ──0.30──> C
+# └──0.45──> D
+# └──0.25──> exterior
+#
+# C ──0.20──> B
+# └──0.50──> D
+# └──0.30──> exterior
+#
+# D ──0.60──> B
+# └──0.40──> exterior
+#==============================================================================
+!PARAMETERS
+
+rndnumbersPerSeed: 100000
+seeds:
+- 29
+
+arrivals:
+   A: 1.1
+
+queues:
+   A:
+      servers: 1
+      capacity: 4
+      minArrival: 1.5
+      maxArrival: 3.5
+      minService: 2.0
+      maxService: 3.0
+   B:
+      servers: 2
+      capacity: 5
+      minService: 3.0
+      maxService: 4.5
+   C:
+      servers: 2
+      capacity: 4
+      minService: 1.5
+      maxService: 3.0
+   D:
+      servers: 1
+      capacity: 6
+      minService: 2.5
+      maxService: 4.0
+
+network:
+-  source: A
+   target: B
+   probability: 0.40
+-  source: A
+   target: C
+   probability: 0.35
+-  source: B
+   target: C
+   probability: 0.30
+-  source: B
+   target: D
+   probability: 0.45
+-  source: C
+   target: B
+   probability: 0.20
+-  source: C
+   target: D
+   probability: 0.50
+-  source: D
+   target: B
+   probability: 0.60

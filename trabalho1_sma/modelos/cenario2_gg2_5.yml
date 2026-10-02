@@ -1,0 +1,21 @@
+#==============================================================================
+# Cenario 2: G/G/2/5 - exemplo alternativo
+# Chegadas: 1.8..4.2 min | Atendimento: 2.0..4.0 min
+#==============================================================================
+!PARAMETERS
+
+rndnumbersPerSeed: 100000
+seeds:
+- 17
+
+arrivals:
+   F1: 1.4
+
+queues:
+   F1:
+      servers: 2
+      capacity: 5
+      minArrival: 1.8
+      maxArrival: 4.2
+      minService: 2.0
+      maxService: 4.0
